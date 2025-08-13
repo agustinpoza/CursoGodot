@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnin7e6ylkfxc" path="res://Scripts/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://cagcbyklevp5w" path="res://Assets/pixel chess/16x32 pieces/B_Pawn.png" id="1_xhfnw"]
-[ext_resource type="PackedScene" uid="uid://nlrj0ptwxp11" path="res://Scenes/glock.tscn" id="3_gntrk"]
+[ext_resource type="PackedScene" uid="uid://nlrj0ptwxp11" path="res://Scenes/Glock.tscn" id="3_gntrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
 size = Vector2(15, 6.4795)
@@ -121,5 +121,5 @@ libraries = {
 }
 autoplay = "Walk"
 
-[node name="Pivot" parent="." instance=ExtResource("3_gntrk")]
+[node name="Glock" parent="." instance=ExtResource("3_gntrk")]
 position = Vector2(46, -42)
