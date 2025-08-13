@@ -1,8 +1,11 @@
 res://Scenes/MainMenu.tscn
-res://Scripts/world.gd
 res://Scenes/World.tscn
-res://Scenes/Player.tscn
 res://Scenes/glock.tscn
-res://Scenes/Glock.tscn
-res://Scripts/player.gd
 res://Scripts/glock.gd
+res://Scenes/bullet.tscn
+res://Scenes/Player.tscn
+res://Scenes/Enemy.tscn
+res://Scripts/enemy.gd
+res://Scripts/proyectil.gd
+res://Scripts/world.gd
+res://Scripts/player.gd

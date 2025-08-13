@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 	
 	if(direction != Vector2.ZERO):
 		if (Input.is_action_just_pressed("shoot")):
-			moving_shoot()
+			shoot()
 		animation_player.play("Walk")
 	else:
 		if (Input.is_action_just_pressed("shoot")):
@@ -21,11 +21,13 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot():
-	const projectile = preload("res://Scenes/bullet.tscn")
-	var bullet = projectile.instantiate()
-	bullet.global_position = gun.sight.global_position
-	bullet.look_at(get_global_mouse_position())
-	get_parent().add_child(bullet)
+	if gun.can_shoot:
+		gun.start_cooldown()
+		const projectile = preload("res://Scenes/bullet.tscn")
+		var bullet = projectile.instantiate()
+		bullet.global_position = gun.sight.global_position
+		bullet.look_at(get_global_mouse_position())
+		get_parent().add_child(bullet)
 	
 func moving_shoot():
 	const projectile = preload("res://Scenes/bullet.tscn")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnin7e6ylkfxc" path="res://Scripts/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://cagcbyklevp5w" path="res://Assets/pixel chess/16x32 pieces/B_Pawn.png" id="1_xhfnw"]
-[ext_resource type="PackedScene" uid="uid://nlrj0ptwxp11" path="res://Scenes/Glock.tscn" id="3_gntrk"]
+[ext_resource type="PackedScene" uid="uid://nlrj0ptwxp11" path="res://Scenes/glock.tscn" id="3_gntrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
 size = Vector2(15, 6.4795)
@@ -107,11 +107,6 @@ position = Vector2(0, -15.9837)
 scale = Vector2(4.635, 4.635)
 shape = SubResource("RectangleShape2D_kpjcp")
 
-[node name="BPawn" type="Sprite2D" parent="."]
-position = Vector2(0, -76)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("1_xhfnw")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
@@ -123,3 +118,8 @@ autoplay = "Walk"
 
 [node name="Glock" parent="." instance=ExtResource("3_gntrk")]
 position = Vector2(46, -42)
+
+[node name="BPawn" type="Sprite2D" parent="."]
+position = Vector2(0, -76)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("1_xhfnw")
