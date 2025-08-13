@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://brca404j2548k"]
+
+[ext_resource type="Script" uid="uid://crh74e4c3hdhr" path="res://Scripts/control.gd" id="1_tt5f1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 647.0
+script = ExtResource("1_tt5f1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 1148.0
+offset_bottom = 218.0
+text = "MI PRIMER JUEGO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="play" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 201.0
+offset_right = 762.0
+offset_bottom = 310.0
+text = "PLAY"
+
+[node name="quit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 364.0
+offset_right = 689.0
+offset_bottom = 468.0
+text = "QUIT"
+
+[connection signal="pressed" from="Panel/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5pnondvxb3"]
+
+[ext_resource type="Script" uid="uid://deugnchdwtq1g" path="res://Scripts/proyectil.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://cdqwo7wcjrslq" path="res://icon.svg" id="2_ycag2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2b2rl"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7duk"]
+size = Vector2(7, 7)
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+script = ExtResource("1_oduel")
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_2b2rl")
+scale = Vector2(0.0507812, 0.0546875)
+texture = ExtResource("2_ycag2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b7duk")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b31ni7878r8yn"]
+
+[ext_resource type="Script" uid="uid://bcrenkq3ube42" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://bhqf754sw8u5" path="res://Assets/pixel chess/16x32 pieces/W_Pawn.png" id="1_hghv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
+size = Vector2(4.45426, 2.10032)
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(3.5, 3.5)
+script = ExtResource("1_1f0kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.857143, -6)
+scale = Vector2(4.5, 4.5)
+shape = SubResource("RectangleShape2D_1f0kj")
+
+[node name="WPawn" type="Sprite2D" parent="."]
+position = Vector2(0.654286, -25.8343)
+scale = Vector2(1.54607, 1.4925)
+texture = ExtResource("1_hghv2")
