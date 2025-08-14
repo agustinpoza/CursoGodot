@@ -1,103 +1,61 @@
-[gd_scene load_steps=9 format=3 uid="uid://dei3ep6yij4xo"]
+[gd_scene load_steps=12 format=3 uid="uid://dei3ep6yij4xo"]
 
 [ext_resource type="Script" uid="uid://cnin7e6ylkfxc" path="res://Scripts/player.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://cagcbyklevp5w" path="res://Assets/pixel chess/16x32 pieces/B_Pawn.png" id="1_xhfnw"]
 [ext_resource type="PackedScene" uid="uid://nlrj0ptwxp11" path="res://Scenes/glock.tscn" id="3_gntrk"]
+[ext_resource type="Texture2D" uid="uid://c8dp5p4cu2uuc" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0480_Capa-481.png" id="3_megsn"]
+[ext_resource type="Texture2D" uid="uid://cihps037otnjb" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0481_Capa-482.png" id="4_yoq75"]
+[ext_resource type="Texture2D" uid="uid://br4h66y6fqvo4" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0476_Capa-477.png" id="5_ksbbd"]
+[ext_resource type="Texture2D" uid="uid://ciso780o58vb6" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0483_Capa-484.png" id="6_glx4g"]
+[ext_resource type="Texture2D" uid="uid://5si4xm7qsx8x" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0484_Capa-485.png" id="7_miouo"]
+[ext_resource type="Texture2D" uid="uid://cd85c66ac5vvk" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0477_Capa-478.png" id="8_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://bcrkpffmrjfrx" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0478_Capa-479.png" id="9_1e7my"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
 size = Vector2(15, 6.4795)
 
-[sub_resource type="Animation" id="Animation_kpjcp"]
-resource_name = "Idle"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BPawn:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.104083, 0.201228),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -76), Vector2(0, -83), Vector2(0, -73)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BPawn:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.104083, 0.201228),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_kne1u"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BPawn:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -76)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BPawn:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_e80uo"]
-resource_name = "Walk"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BPawn:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.102696, 0.204004, 0.301148, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -76), Vector2(0, -76), Vector2(0, -76), Vector2(0, -76), Vector2(0, -76)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BPawn:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.102696, 0.204004, 0.301148, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.29366, -0.00712098, -0.189383, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxr5p"]
-_data = {
-&"Idle": SubResource("Animation_kpjcp"),
-&"RESET": SubResource("Animation_kne1u"),
-&"Walk": SubResource("Animation_e80uo")
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_arntx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_megsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yoq75")
+}],
+"loop": true,
+"name": &"h_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ksbbd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_glx4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_miouo")
+}],
+"loop": true,
+"name": &"v_walk+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_o3h8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1e7my")
+}],
+"loop": true,
+"name": &"v_walk-",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kpjcp")
@@ -110,16 +68,11 @@ shape = SubResource("RectangleShape2D_kpjcp")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_cxr5p")
-}
-autoplay = "Walk"
-
 [node name="Glock" parent="." instance=ExtResource("3_gntrk")]
-position = Vector2(46, -42)
+position = Vector2(52, -32)
 
-[node name="BPawn" type="Sprite2D" parent="."]
-position = Vector2(0, -76)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("1_xhfnw")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -37)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_arntx")
+animation = &"h_walk"

@@ -1,25 +1,30 @@
 extends CharacterBody2D
 @export var speed = 300
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player = $AnimatedSprite2D
 @onready var gun = $Glock
 
 func _physics_process(delta: float) -> void:
 	
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction*speed
-	
-	if(direction != Vector2.ZERO):
-		if (Input.is_action_just_pressed("shoot")):
-			shoot()
-		animation_player.play("Walk")
-	else:
-		if (Input.is_action_just_pressed("shoot")):
-			shoot()
-		animation_player.play("Idle")
-	
+	animation(direction)
 	move_and_slide()
 
 
+func animation(dir: Vector2):
+	
+	if dir == Vector2.ZERO:
+		animation_player.play("idle")
+	if dir == Vector2.UP:
+		animation_player.play("v_walk+")
+	if dir == Vector2.DOWN:
+		animation_player.play("v_walk-")
+	if dir == Vector2.RIGHT:
+		animation_player.play("h_walk")
+	if dir == Vector2.LEFT:
+		animation_player.flip_h #chequear
+		animation_player.play("h_walk")
+		
 func shoot():
 	if gun.can_shoot:
 		gun.start_cooldown()

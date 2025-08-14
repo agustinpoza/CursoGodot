@@ -9,7 +9,6 @@ func _physics_process(delta: float) -> void:
 	var target_pos = get_global_mouse_position()
 	dir = (target_pos - global_position).normalized()
 	look_at(target_pos)
-	print(dir.x)
 	if dir.x < 0:
 		$Glock/Glock.flip_v = true
 		# Chequear rotacion

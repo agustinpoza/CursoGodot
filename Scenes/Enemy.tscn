@@ -1,87 +1,74 @@
-[gd_scene load_steps=7 format=3 uid="uid://b31ni7878r8yn"]
+[gd_scene load_steps=11 format=3 uid="uid://b31ni7878r8yn"]
 
 [ext_resource type="Script" uid="uid://bcrenkq3ube42" path="res://Scripts/enemy.gd" id="1_1f0kj"]
-[ext_resource type="Texture2D" uid="uid://bhqf754sw8u5" path="res://Assets/pixel chess/16x32 pieces/W_Pawn.png" id="1_hghv2"]
+[ext_resource type="Texture2D" uid="uid://cu3hio8lihls2" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0398_Capa-399.png" id="2_uoxpr"]
+[ext_resource type="Texture2D" uid="uid://crp7kadokh84a" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0399_Capa-400.png" id="3_idouy"]
+[ext_resource type="Texture2D" uid="uid://byo6yayurt4x6" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0394_Capa-395.png" id="4_0o0ue"]
+[ext_resource type="Texture2D" uid="uid://c4gg6qeil8yn0" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0401_Capa-402.png" id="5_6s1gy"]
+[ext_resource type="Texture2D" uid="uid://ca3bdah2l0dlk" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0402_Capa-403.png" id="6_uihya"]
+[ext_resource type="Texture2D" uid="uid://buwnabv1sdokc" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0395_Capa-396.png" id="7_27ry8"]
+[ext_resource type="Texture2D" uid="uid://o7nyf2lk6mud" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0396_Capa-397.png" id="8_esfq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
-size = Vector2(4.45426, 2.10032)
+size = Vector2(2.79365, 2.19302)
 
-[sub_resource type="Animation" id="Animation_wovta"]
-resource_name = "dead"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WPawn:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.654286, -25.8343), Vector2(15.1429, -9.42857)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WPawn:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.58066]
-}
-
-[sub_resource type="Animation" id="Animation_xeo28"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WPawn:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.654286, -25.8343)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WPawn:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpr8r"]
-_data = {
-&"RESET": SubResource("Animation_xeo28"),
-&"dead": SubResource("Animation_wovta")
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlal6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uoxpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_idouy")
+}],
+"loop": true,
+"name": &"h_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0o0ue")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6s1gy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uihya")
+}],
+"loop": true,
+"name": &"v_walk+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_27ry8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_esfq3")
+}],
+"loop": true,
+"name": &"v_walk-",
+"speed": 5.0
+}]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(3.5, 3.5)
 script = ExtResource("1_1f0kj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.857143, -6)
+position = Vector2(0.285713, -5.79143)
 scale = Vector2(4.5, 4.5)
 shape = SubResource("RectangleShape2D_1f0kj")
 
-[node name="WPawn" type="Sprite2D" parent="."]
-position = Vector2(0.654286, -25.8343)
-scale = Vector2(1.54607, 1.4925)
-texture = ExtResource("1_hghv2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_kpr8r")
-}
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.857143, -12.8571)
+scale = Vector2(1.61688, 1.6619)
+sprite_frames = SubResource("SpriteFrames_qlal6")
+animation = &"h_walk"
+frame = 1
+frame_progress = 0.644053
