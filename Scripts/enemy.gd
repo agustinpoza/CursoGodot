@@ -3,16 +3,17 @@ extends CharacterBody2D
 @onready var speed = 300
 @onready var lives = 5
 @onready var animation_player = $AnimatedSprite2D
+@onready var nav_agent = $NavigationAgent2D
 var target
 signal enemigo_muerto
 
 func _physics_process(delta: float) -> void:
 	if target: 
+		var next_pos = nav_agent.get_next_path_position()
 		var direction = (target.global_position - global_position).normalized()
 		velocity = direction * speed
 		animation(direction)
 		move_and_slide()
-		
 
 
 func animation(dir: Vector2):
@@ -32,14 +33,14 @@ func animation(dir: Vector2):
 	if max_dot == right_dot:
 		animation_player.play("h_walk")
 	if max_dot == left_dot:
-		animation_player.flip_h #chequear
 		animation_player.play("h_walk")
 		
 
 func get_damage():
+	print(lives)
 	lives -= 1
 	if lives <= 0:
 		enemigo_muerto.emit()
-		animation_player.play("dead")
-		await animation_player.animation_finished
+		#animation_player.play("dead")
+		#await animation_player.animation_finished
 		queue_free()

@@ -21,9 +21,14 @@ func spawn_enemies():
 		var random_point = points.pick_random()
 		invocar_enemigo(random_point.global_position)
 		await get_tree().create_timer(0.5).timeout
+	Global.oleada += 1
 
 
 func check_fin_oleada():
 	await get_tree().process_frame
 	if $Enemies.get_children().is_empty():
 		spawn_enemies()
+
+
+func _on_player_game_over() -> void:
+	get_tree().change_scene_to_file("res://Scenes/game_over_menu.tscn")

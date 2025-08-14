@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dei3ep6yij4xo"]
+[gd_scene load_steps=13 format=3 uid="uid://dei3ep6yij4xo"]
 
 [ext_resource type="Script" uid="uid://cnin7e6ylkfxc" path="res://Scripts/player.gd" id="1_kpjcp"]
 [ext_resource type="PackedScene" uid="uid://nlrj0ptwxp11" path="res://Scenes/glock.tscn" id="3_gntrk"]
@@ -57,6 +57,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_megsn"]
+size = Vector2(55, 23)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kpjcp")
 
@@ -76,3 +79,13 @@ position = Vector2(0, -37)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_arntx")
 animation = &"h_walk"
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-1, -20)
+shape = SubResource("RectangleShape2D_megsn")
+debug_color = Color(1, 0.00647609, 0.0545903, 0.42)
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]

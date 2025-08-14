@@ -1,3 +1,11 @@
+NavigationAgent2D
+NavigationRegion2D
+Label
+Panel
+CanvasLayer
+Button
+CollisionShape2D
+Area2D
 AnimatedSprite2D
 Timer
 Line2D
@@ -5,4 +13,3 @@ Bone2D
 Skeleton2D
 AnimationPlayer
 Node2D
-Node
