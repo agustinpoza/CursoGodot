@@ -8,3 +8,4 @@ res://Scenes/Guns/MP5.tscn
 res://Scenes/game_over_menu.tscn
 res://Scripts/glock.gd
 res://Scripts/player.gd
+res://Scripts/control.gd

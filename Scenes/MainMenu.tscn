@@ -33,10 +33,10 @@ text = "PLAY"
 
 [node name="quit" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 193.0
-offset_top = 159.0
-offset_right = 266.0
-offset_bottom = 203.0
+offset_left = 188.0
+offset_top = 150.0
+offset_right = 261.0
+offset_bottom = 194.0
 text = "QUIT"
 
 [connection signal="pressed" from="Panel/play" to="." method="_on_play_pressed"]
