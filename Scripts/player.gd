@@ -11,7 +11,7 @@ signal game_over
 
 func _ready() -> void:
 	Global.update_player_health(health)
-	gun_in_hand = inventory.get_child(0)
+	gun_in_hand = inventory.get_child(0).duplicate()
 	hand.add_child(gun_in_hand)
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	if not enemies_in_hurtbox.is_empty():
 		recibir_daño()
 	move_and_slide()
+
+	
 
 func guns_actions():
 	if Input.is_action_just_pressed("change_gun_1"):
@@ -59,11 +61,20 @@ func shoot():
 			gun_in_hand.empty_shoot()
 
 func change_gun_1():
-	gun_in_hand = inventory.get_child(0)
+	gun_in_hand = inventory.get_child(0).duplicate()
+	if not hand.get_children().is_empty():
+		hand.remove_child(hand.get_child(0))
+	hand.add_child(gun_in_hand)
 func change_gun_2():
-	gun_in_hand = inventory.get_child(1)
+	gun_in_hand = inventory.get_child(1).duplicate()
+	if not hand.get_children().is_empty():
+		hand.remove_child(hand.get_child(0))
+	hand.add_child(gun_in_hand)
 func change_gun_3():
-	gun_in_hand = inventory.get_child(2)
+	gun_in_hand = inventory.get_child(2).duplicate()
+	if not hand.get_children().is_empty():
+		hand.remove_child(hand.get_child(0))
+	hand.add_child(gun_in_hand)
 
 func auto_shoot():
 	if not $Hand.get_children().is_empty():
