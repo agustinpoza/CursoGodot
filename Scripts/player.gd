@@ -1,28 +1,44 @@
 extends CharacterBody2D
-@export var speed = 300
+@export var speed = 70
 @onready var animation_player = $AnimatedSprite2D
-@onready var gun = $Glock
+@onready var inventory = $Inventory
+@onready var hand = $Hand
 @export var damage = 1
-@export var life = 10
+@export var health = 100
 var enemies_in_hurtbox = []
+@onready var gun_in_hand
 signal game_over
 
 func _ready() -> void:
-	Global.update_player_life(life)
+	Global.update_player_health(health)
+	gun_in_hand = inventory.get_child(0)
+	hand.add_child(gun_in_hand)
 
 func _physics_process(delta: float) -> void:
-	Global.playerLife = life
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if not direction == Vector2.ZERO:
+		Global.update_player_pos(global_position)
 	velocity = direction*speed
-	animation(direction)
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
+	animate_direction(direction)
+	guns_actions()
 	if not enemies_in_hurtbox.is_empty():
 		recibir_daño()
 	move_and_slide()
 
+func guns_actions():
+	if Input.is_action_just_pressed("change_gun_1"):
+		change_gun_1()
+	if Input.is_action_just_pressed("change_gun_2"):
+		change_gun_2()
+	if Input.is_action_just_pressed("change_gun_3"):
+		change_gun_3()
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+	if Input.is_action_pressed("shoot") and gun_in_hand.auto:
+		auto_shoot()
+	
 
-func animation(dir: Vector2):
+func animate_direction(dir: Vector2):
 	
 	if dir == Vector2.ZERO:
 		animation_player.play("idle")
@@ -31,35 +47,39 @@ func animation(dir: Vector2):
 	if dir == Vector2.DOWN:
 		animation_player.play("v_walk-")
 	if dir == Vector2.RIGHT:
-		animation_player.play("h_walk")
+		animation_player.play("h_walk+")
 	if dir == Vector2.LEFT:
-		animation_player.play("h_walk")
+		animation_player.play("h_walk-")
 		
 func shoot():
-	if gun.can_shoot:
-		gun.start_cooldown()
-		const projectile = preload("res://Scenes/bullet.tscn")
-		var bullet = projectile.instantiate()
-		bullet.global_position = gun.sight.global_position
-		bullet.look_at(get_global_mouse_position())
-		get_parent().add_child(bullet)
-	
-func recibir_daño():
-	Global.update_player_life(life)
-	life -= enemies_in_hurtbox.size()*damage
-	if life <= 0:
-		game_over.emit()
+	if not $Hand.get_children().is_empty():
+		if gun_in_hand.can_shoot and gun_in_hand.ammo != 0:
+			gun_in_hand.single_shoot()
+		elif gun_in_hand.ammo == 0:
+			gun_in_hand.empty_shoot()
 
-func moving_shoot():
-	const projectile = preload("res://Scenes/bullet.tscn")
-	var bullet = projectile.instantiate()
-	bullet.global_position = gun.sight.global_position
-	var original_vector = get_global_mouse_position().normalized()
-	var random_offset = Vector2(randf_range(-1,1),randf_range(-1,1))
-	var final_vector = original_vector * random_offset
-	bullet.look_at(final_vector)
-	get_parent().add_child(bullet)
+func change_gun_1():
+	gun_in_hand = inventory.get_child(0)
+func change_gun_2():
+	gun_in_hand = inventory.get_child(1)
+func change_gun_3():
+	gun_in_hand = inventory.get_child(2)
+
+func auto_shoot():
+	if not $Hand.get_children().is_empty():
+		if gun_in_hand.can_shoot and gun_in_hand.ammo != 0:
+			gun_in_hand.auto_shoot()
+		elif gun_in_hand.ammo == 0:
+			gun_in_hand.empty_shoot()
+
+
 	
+
+func recibir_daño():
+	health -= enemies_in_hurtbox.size()*damage
+	Global.update_player_health(health)
+	if health <= 0:
+		game_over.emit()
 	
 
 

@@ -1,28 +1,55 @@
-[gd_scene load_steps=11 format=3 uid="uid://b31ni7878r8yn"]
+[gd_scene load_steps=15 format=3 uid="uid://b31ni7878r8yn"]
 
 [ext_resource type="Script" uid="uid://bcrenkq3ube42" path="res://Scripts/enemy.gd" id="1_1f0kj"]
-[ext_resource type="Texture2D" uid="uid://cu3hio8lihls2" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0398_Capa-399.png" id="2_uoxpr"]
-[ext_resource type="Texture2D" uid="uid://crp7kadokh84a" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0399_Capa-400.png" id="3_idouy"]
-[ext_resource type="Texture2D" uid="uid://byo6yayurt4x6" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0394_Capa-395.png" id="4_0o0ue"]
-[ext_resource type="Texture2D" uid="uid://c4gg6qeil8yn0" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0401_Capa-402.png" id="5_6s1gy"]
-[ext_resource type="Texture2D" uid="uid://ca3bdah2l0dlk" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0402_Capa-403.png" id="6_uihya"]
-[ext_resource type="Texture2D" uid="uid://buwnabv1sdokc" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0395_Capa-396.png" id="7_27ry8"]
-[ext_resource type="Texture2D" uid="uid://o7nyf2lk6mud" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0396_Capa-397.png" id="8_esfq3"]
+[ext_resource type="Texture2D" uid="uid://dndtmd8p2ptut" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0399_Capa-400 - copia.png" id="2_uihya"]
+[ext_resource type="Texture2D" uid="uid://dn6hfgwu0cxgk" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0398_Capa-399.png" id="2_uoxpr"]
+[ext_resource type="Texture2D" uid="uid://dvy6bncuurt3d" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0397_Capa-398 - copia.png" id="3_27ry8"]
+[ext_resource type="Texture2D" uid="uid://bhrspjkrhdxai" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0399_Capa-400.png" id="3_idouy"]
+[ext_resource type="Texture2D" uid="uid://bas4sh8q6anbv" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0394_Capa-395.png" id="4_0o0ue"]
+[ext_resource type="Texture2D" uid="uid://n8e2qgm88g35" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0398_Capa-399 - copia.png" id="4_esfq3"]
+[ext_resource type="Texture2D" uid="uid://prsgnm7d5bbc" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0401_Capa-402.png" id="5_6s1gy"]
+[ext_resource type="Texture2D" uid="uid://b1cpcdngsuoht" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0397_Capa-398.png" id="6_qlal6"]
+[ext_resource type="Texture2D" uid="uid://b0bmnpedbnm1k" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0402_Capa-403.png" id="6_uihya"]
+[ext_resource type="Texture2D" uid="uid://b0s5lueg4aa6c" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0395_Capa-396.png" id="7_27ry8"]
+[ext_resource type="Texture2D" uid="uid://dpxcbq6l8rli8" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0396_Capa-397.png" id="8_esfq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
-size = Vector2(2.79365, 2.19302)
+size = Vector2(2.53968, 3.55556)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlal6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_uihya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_27ry8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_esfq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_27ry8")
+}],
+"loop": true,
+"name": &"h_walk+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_idouy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qlal6")
+}, {
+"duration": 1.0,
 "texture": ExtResource("2_uoxpr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_idouy")
+"texture": ExtResource("6_qlal6")
 }],
 "loop": true,
-"name": &"h_walk",
+"name": &"h_walk-",
 "speed": 5.0
 }, {
 "frames": [{
@@ -57,23 +84,29 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
-scale = Vector2(3.5, 3.5)
 script = ExtResource("1_1f0kj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.285713, -5.79143)
+position = Vector2(0.571428, -0.285715)
 scale = Vector2(4.5, 4.5)
 shape = SubResource("RectangleShape2D_1f0kj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.857143, -12.8571)
-scale = Vector2(1.61688, 1.6619)
 sprite_frames = SubResource("SpriteFrames_qlal6")
-animation = &"h_walk"
-frame = 1
-frame_progress = 0.644053
+animation = &"h_walk+"
+frame_progress = 0.939539
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+simplify_path = true
 avoidance_enabled = true
+radius = 7.0
+neighbor_distance = 50.0
 debug_enabled = true
-debug_path_custom_color = Color(1, 0, 0, 1)
+debug_use_custom = true
+debug_path_custom_color = Color(0, 0, 1, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_nav_timer_timeout"]

@@ -1,17 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://dei3ep6yij4xo"]
+[gd_scene load_steps=17 format=3 uid="uid://dei3ep6yij4xo"]
 
 [ext_resource type="Script" uid="uid://cnin7e6ylkfxc" path="res://Scripts/player.gd" id="1_kpjcp"]
-[ext_resource type="PackedScene" uid="uid://nlrj0ptwxp11" path="res://Scenes/glock.tscn" id="3_gntrk"]
-[ext_resource type="Texture2D" uid="uid://c8dp5p4cu2uuc" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0480_Capa-481.png" id="3_megsn"]
-[ext_resource type="Texture2D" uid="uid://cihps037otnjb" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0481_Capa-482.png" id="4_yoq75"]
-[ext_resource type="Texture2D" uid="uid://br4h66y6fqvo4" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0476_Capa-477.png" id="5_ksbbd"]
-[ext_resource type="Texture2D" uid="uid://ciso780o58vb6" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0483_Capa-484.png" id="6_glx4g"]
-[ext_resource type="Texture2D" uid="uid://5si4xm7qsx8x" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0484_Capa-485.png" id="7_miouo"]
-[ext_resource type="Texture2D" uid="uid://cd85c66ac5vvk" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0477_Capa-478.png" id="8_o3h8g"]
-[ext_resource type="Texture2D" uid="uid://bcrkpffmrjfrx" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0478_Capa-479.png" id="9_1e7my"]
+[ext_resource type="PackedScene" uid="uid://nlrj0ptwxp11" path="res://Scenes/Guns/Glock.tscn" id="3_gntrk"]
+[ext_resource type="Texture2D" uid="uid://qid6nkyyvvi4" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0480_Capa-481.png" id="3_megsn"]
+[ext_resource type="Texture2D" uid="uid://cger6gwygv3b1" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0480_Capa-481 - copia.png" id="4_miouo"]
+[ext_resource type="Texture2D" uid="uid://bxbklcdypv2q5" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0481_Capa-482.png" id="4_yoq75"]
+[ext_resource type="Texture2D" uid="uid://7vn3mykkdbql" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0476_Capa-477.png" id="5_ksbbd"]
+[ext_resource type="Texture2D" uid="uid://c3tondffjltam" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0481_Capa-482 - copia.png" id="5_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://2tnhaastvnt8" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0483_Capa-484.png" id="6_glx4g"]
+[ext_resource type="Texture2D" uid="uid://du2vguokpgsm4" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0484_Capa-485.png" id="7_miouo"]
+[ext_resource type="Texture2D" uid="uid://ft26vlojnqnr" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0477_Capa-478.png" id="8_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://cbrx6kr4kfpya" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0478_Capa-479.png" id="9_1e7my"]
+[ext_resource type="PackedScene" uid="uid://bk83hx1io01nd" path="res://Scenes/Guns/MP5.tscn" id="9_ksbbd"]
+[ext_resource type="PackedScene" uid="uid://dvnmldyoa0jm0" path="res://Scenes/Guns/AK47.tscn" id="10_yoq75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
-size = Vector2(15, 6.4795)
+size = Vector2(2.77913, 1.18838)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_arntx"]
 animations = [{
@@ -23,7 +27,18 @@ animations = [{
 "texture": ExtResource("4_yoq75")
 }],
 "loop": true,
-"name": &"h_walk",
+"name": &"h_walk+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_miouo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o3h8g")
+}],
+"loop": true,
+"name": &"h_walk-",
 "speed": 5.0
 }, {
 "frames": [{
@@ -58,34 +73,45 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_megsn"]
-size = Vector2(55, 23)
+size = Vector2(11.5, 12.25)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kpjcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15.9837)
+position = Vector2(2.98023e-08, 5)
 scale = Vector2(4.635, 4.635)
 shape = SubResource("RectangleShape2D_kpjcp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="Glock" parent="." instance=ExtResource("3_gntrk")]
-position = Vector2(52, -32)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -37)
-scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_arntx")
-animation = &"h_walk"
+animation = &"h_walk+"
+frame_progress = 0.578073
 
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-1, -20)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_megsn")
 debug_color = Color(1, 0.00647609, 0.0545903, 0.42)
+
+[node name="Hand" type="Node2D" parent="."]
+
+[node name="Inventory" type="Node2D" parent="."]
+visible = false
+
+[node name="Glock" parent="Inventory" instance=ExtResource("3_gntrk")]
+position = Vector2(10, -1)
+scale = Vector2(0.5, 0.5)
+
+[node name="MP" parent="Inventory" instance=ExtResource("9_ksbbd")]
+position = Vector2(17, 2)
+
+[node name="AK" parent="Inventory" instance=ExtResource("10_yoq75")]
+position = Vector2(18, 1)
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]

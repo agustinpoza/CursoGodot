@@ -1,19 +1,25 @@
 extends CharacterBody2D
 
-@onready var speed = 300
-@onready var lives = 5
+@onready var speed = 50
+@onready var lives = 2
 @onready var animation_player = $AnimatedSprite2D
-@onready var nav_agent = $NavigationAgent2D
-var target
+@onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
+var target : Vector2
 signal enemigo_muerto
 
+func _ready() -> void:
+	Global.new_player_position.connect(update_target)
+
 func _physics_process(delta: float) -> void:
+	print(global_position)
 	if target: 
-		var next_pos = nav_agent.get_next_path_position()
-		var direction = (target.global_position - global_position).normalized()
-		velocity = direction * speed
-		animation(direction)
+		if not nav_agent.is_target_reached():
+			var next_point = nav_agent.get_next_path_position()
+			var direction = (next_point - global_position).normalized()
+			velocity = direction * speed
+			animation(direction)
 		move_and_slide()
+		
 
 
 func animation(dir: Vector2):
@@ -31,16 +37,25 @@ func animation(dir: Vector2):
 	if max_dot == down_dot:
 		animation_player.play("v_walk-")
 	if max_dot == right_dot:
-		animation_player.play("h_walk")
+		animation_player.play("h_walk+")
 	if max_dot == left_dot:
-		animation_player.play("h_walk")
+		animation_player.play("h_walk-")
 		
 
 func get_damage():
-	print(lives)
 	lives -= 1
 	if lives <= 0:
 		enemigo_muerto.emit()
 		#animation_player.play("dead")
 		#await animation_player.animation_finished
 		queue_free()
+
+func update_target():
+	target = Global.playerPosition
+
+
+func _on_nav_timer_timeout() -> void: # Timer para no sobrecargar recalculando target
+	if nav_agent.target_position != target:
+		nav_agent.target_position = target
+		print(target)
+	$Timer.start()

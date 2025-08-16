@@ -4,18 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://dp5aiedmcnjm1" path="res://Assets/Guns_V1.01 - Commission - Copy/01 - Individual sprites/Bullets & Ammo/Glock - P80/Bullet.png" id="2_oduel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7duk"]
-size = Vector2(7, 7)
+size = Vector2(2, 2)
 
 [node name="Bullet" type="Area2D" groups=["enemy"]]
 top_level = true
 script = ExtResource("1_oduel")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_b7duk")
-
 [node name="Bullet" type="Sprite2D" parent="."]
-position = Vector2(-3, -5.68434e-14)
-scale = Vector2(2.78125, 2.9375)
 texture = ExtResource("2_oduel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_b7duk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

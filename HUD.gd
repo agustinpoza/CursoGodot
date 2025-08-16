@@ -1,12 +1,11 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	updateLifeLabel()
-	updateWaveLabel()
-	Global.player_damaged.connect(updateLifeLabel)
+	Global.player_damaged.connect(update_health_label)
+	Global.new_wave_reached.connect(update_wave_label)
 
-func updateLifeLabel():
-	$Panel/LifeLabel.text = "Life: "+ str(Global.playerLife)
+func update_health_label():
+	$Panel/LifeLabel.text = "Life: "+ str(Global.playerHealth)
 
-func updateWaveLabel():
-	$Panel/WaveLabel.text = "Oleada: "+ str(Global.oleada)
+func update_wave_label():
+	$Panel/WaveLabel.text = "Oleada: "+ str(Global.this_wave)

@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://nlrj0ptwxp11"]
+
+[ext_resource type="Script" uid="uid://c34to50mircjd" path="res://Scripts/glock.gd" id="1_lsi18"]
+[ext_resource type="Texture2D" uid="uid://c0q8kndcwovqq" path="res://Assets/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH MUZZLE FLASH] Glock - P80.png" id="2_lsi18"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfwp5"]
+atlas = ExtResource("2_lsi18")
+region = Rect2(64, 0, 64, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vs05"]
+atlas = ExtResource("2_lsi18")
+region = Rect2(128, 0, 64, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4xsi"]
+atlas = ExtResource("2_lsi18")
+region = Rect2(192, 0, 64, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik71t"]
+atlas = ExtResource("2_lsi18")
+region = Rect2(256, 0, 64, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8phq"]
+atlas = ExtResource("2_lsi18")
+region = Rect2(320, 0, 64, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58uqb"]
+atlas = ExtResource("2_lsi18")
+region = Rect2(384, 0, 64, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1e67i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfwp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vs05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4xsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik71t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8phq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58uqb")
+}],
+"loop": false,
+"name": &"single_shoot",
+"speed": 25.0
+}]
+
+[node name="Pivot" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_lsi18")
+
+[node name="Glock" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Glock"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1e67i")
+animation = &"single_shoot"
+
+[node name="Sight" type="Node2D" parent="Glock/AnimatedSprite2D"]
+position = Vector2(17, -9)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

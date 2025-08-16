@@ -1,16 +1,18 @@
 extends Node
 
 @onready var player : CharacterBody2D = $Player
-@onready var cant_enemigos = 5
+@onready var cant_enemigos = 2
+var waves = 0
 
 func _ready() -> void:
+	Global.new_wave(waves)
 	spawn_enemies()
 
 func invocar_enemigo(position : Vector2):
 	const ENEMY = preload("res://Scenes/Enemy.tscn")
 	var instancia_enemigo = ENEMY.instantiate()
 	instancia_enemigo.global_position = position
-	instancia_enemigo.target = player
+	#instancia_enemigo.target = player
 	instancia_enemigo.add_to_group("enemy")
 	instancia_enemigo.enemigo_muerto.connect(check_fin_oleada)
 	$Enemies.add_child(instancia_enemigo)
@@ -21,7 +23,8 @@ func spawn_enemies():
 		var random_point = points.pick_random()
 		invocar_enemigo(random_point.global_position)
 		await get_tree().create_timer(0.5).timeout
-	Global.oleada += 1
+	waves += 1
+	Global.new_wave(waves)
 
 
 func check_fin_oleada():
