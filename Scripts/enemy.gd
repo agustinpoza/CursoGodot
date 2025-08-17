@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 var target : Vector2
 signal enemigo_muerto
+@onready var sonido_daño: AudioStreamPlayer2D = $SonidoDaño
+@onready var sonido_muerto: AudioStreamPlayer2D = $SonidoDaño
 
 func _ready() -> void:
 	Global.new_player_position.connect(update_target)
@@ -44,7 +46,9 @@ func animation(dir: Vector2):
 
 func get_damage():
 	lives -= 1
+	sonido_daño.play()
 	if lives <= 0:
+		sonido_muerto.play()
 		enemigo_muerto.emit()
 		#animation_player.play("dead")
 		#await animation_player.animation_finished

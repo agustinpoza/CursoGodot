@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct101emm2kke8"]
+
+[sub_resource type="Curve" id="Curve_filcw"]
+_data = [Vector2(0.00165563, 1), 0.0, 0.0, 0, 0, Vector2(0.991722, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Particulas_sangre" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(290, 47)
+emitting = false
+amount = 30
+one_shot = true
+speed_scale = 4.4
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.18
+fract_delta = false
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(-50, 200)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_filcw")
+color = Color(0.592033, 0, 0.0166581, 1)
