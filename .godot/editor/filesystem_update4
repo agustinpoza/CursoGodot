@@ -9,3 +9,8 @@ res://Scenes/game_over_menu.tscn
 res://Scripts/glock.gd
 res://Scripts/player.gd
 res://Scripts/control.gd
+res://Scripts/enemy.gd
+res://Scenes/HUD.tscn
+res://Scenes/blood_particles.tscn
+res://global.gd
+res://Scenes/particulas_sangre.tscn

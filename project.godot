@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CursoGodot"
+run/main_scene="uid://brca404j2548k"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.369275, 0.622686, 1.92523e-07, 1)
 boot_splash/show_image=false

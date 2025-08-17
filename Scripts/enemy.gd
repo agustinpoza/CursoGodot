@@ -7,13 +7,11 @@ extends CharacterBody2D
 var target : Vector2
 signal enemigo_muerto
 @onready var sonido_daño: AudioStreamPlayer2D = $SonidoDaño
-@onready var sonido_muerto: AudioStreamPlayer2D = $SonidoDaño
 
 func _ready() -> void:
 	Global.new_player_position.connect(update_target)
 
 func _physics_process(delta: float) -> void:
-	print(global_position)
 	if target: 
 		if not nav_agent.is_target_reached():
 			var next_point = nav_agent.get_next_path_position()
@@ -46,9 +44,11 @@ func animation(dir: Vector2):
 
 func get_damage():
 	lives -= 1
+	Global.create_particle("blood_particle", global_position)
 	sonido_daño.play()
+	await sonido_daño.finished
+	sonido_daño.stop()
 	if lives <= 0:
-		sonido_muerto.play()
 		enemigo_muerto.emit()
 		#animation_player.play("dead")
 		#await animation_player.animation_finished
@@ -61,5 +61,4 @@ func update_target():
 func _on_nav_timer_timeout() -> void: # Timer para no sobrecargar recalculando target
 	if nav_agent.target_position != target:
 		nav_agent.target_position = target
-		print(target)
 	$Timer.start()

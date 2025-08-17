@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b31ni7878r8yn"]
+[gd_scene load_steps=16 format=3 uid="uid://b31ni7878r8yn"]
 
 [ext_resource type="Script" uid="uid://bcrenkq3ube42" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://dndtmd8p2ptut" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0399_Capa-400 - copia.png" id="2_uihya"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b0s5lueg4aa6c" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0395_Capa-396.png" id="7_27ry8"]
 [ext_resource type="Texture2D" uid="uid://dpxcbq6l8rli8" path="res://Assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0396_Capa-397.png" id="8_esfq3"]
 [ext_resource type="AudioStream" uid="uid://csr4vo1c6tctx" path="res://Assets/aBullet.wav" id="13_esfq3"]
-[ext_resource type="AudioStream" uid="uid://bppqbalurss4" path="res://Assets/aDeath.wav" id="14_qlal6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
 size = Vector2(2.53968, 3.55556)
@@ -103,8 +102,6 @@ simplify_path = true
 avoidance_enabled = true
 radius = 7.0
 neighbor_distance = 50.0
-debug_enabled = true
-debug_use_custom = true
 debug_path_custom_color = Color(0, 0, 1, 1)
 
 [node name="Timer" type="Timer" parent="."]
@@ -113,8 +110,5 @@ autostart = true
 
 [node name="SonidoDaño" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_esfq3")
-
-[node name="SondioMuerto" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_qlal6")
 
 [connection signal="timeout" from="Timer" to="." method="_on_nav_timer_timeout"]

@@ -16,10 +16,21 @@ offset_bottom = 275.0
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 101.0
-offset_right = 346.0
-offset_bottom = 80.0
-text = "MI PRIMER JUEGO"
+offset_left = 109.0
+offset_top = 9.0
+offset_right = 354.0
+offset_bottom = 89.0
+text = "CURSO GODOT DCIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 234.0
+offset_right = 347.0
+offset_bottom = 274.0
+text = "Comisión tomás hergenreder y agustin poza"
 horizontal_alignment = 1
 vertical_alignment = 1
 
