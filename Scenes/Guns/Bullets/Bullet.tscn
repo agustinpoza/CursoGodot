@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5pnondvxb3"]
 
-[ext_resource type="Script" uid="uid://deugnchdwtq1g" path="res://Scripts/proyectil.gd" id="1_oduel"]
+[ext_resource type="Script" uid="uid://deugnchdwtq1g" path="res://Scripts/Guns/Bullets/Bullet.gd" id="1_oduel"]
 [ext_resource type="Texture2D" uid="uid://dp5aiedmcnjm1" path="res://Assets/Guns_V1.01 - Commission - Copy/01 - Individual sprites/Bullets & Ammo/Glock - P80/Bullet.png" id="2_oduel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7duk"]
 size = Vector2(2, 2)
 
-[node name="Bullet" type="Area2D" groups=["enemy"]]
+[node name="Bullet" type="Area2D"]
 top_level = true
 script = ExtResource("1_oduel")
 

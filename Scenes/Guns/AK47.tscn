@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvnmldyoa0jm0"]
+[gd_scene load_steps=27 format=3 uid="uid://dvnmldyoa0jm0"]
 
-[ext_resource type="Script" uid="uid://de6tuvdwru7dk" path="res://Scripts/ak_47.gd" id="1_bh57w"]
+[ext_resource type="Script" uid="uid://de6tuvdwru7dk" path="res://Scripts/Guns/ak_47.gd" id="1_bh57w"]
+[ext_resource type="PackedScene" uid="uid://1hbit4mg4scp" path="res://Scenes/Guns/Bullets/AK47_Bullet.tscn" id="2_0qmvf"]
 [ext_resource type="Texture2D" uid="uid://dj2h6tyufrkxd" path="res://Assets/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/AK 47 [96x48]/Full auto/[SHOOT WITH MUZZLE FLASH] FULL AUTO - AK 47.png" id="2_bh57w"]
 [ext_resource type="Texture2D" uid="uid://bi14mh1u0sujd" path="res://Assets/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/AK 47 [96x48]/Full auto/[SHOOT WITH CASING AND MUZZLE FLASH] FULL AUTO - AK 47.png" id="3_0qmvf"]
 
@@ -160,20 +161,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_4050x")
 }],
 "loop": false,
-"name": &"individual_shoot",
+"name": &"single_shoot",
 "speed": 16.0
 }]
 
-[node name="AK" type="Node2D"]
+[node name="AK" type="Node2D" node_paths=PackedStringArray("sight", "animationPlayer")]
 y_sort_enabled = true
 script = ExtResource("1_bh57w")
+sight = NodePath("AK47/AnimatedSprite2D/Sight")
+animationPlayer = NodePath("AK47/AnimatedSprite2D")
+bullet_scene = ExtResource("2_0qmvf")
 
 [node name="AK47" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AK47"]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_1e67i")
-animation = &"auto_shoot"
+animation = &"single_shoot"
 
 [node name="Sight" type="Node2D" parent="AK47/AnimatedSprite2D"]
 position = Vector2(32, -10)

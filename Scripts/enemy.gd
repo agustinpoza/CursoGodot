@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+class_name Enemy
+
 @onready var speed = 50
-@onready var lives = 2
+@onready var lives = 20
 @onready var animation_player = $AnimatedSprite2D
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 var target : Vector2
@@ -42,8 +44,8 @@ func animation(dir: Vector2):
 		animation_player.play("h_walk-")
 		
 
-func get_damage():
-	lives -= 1
+func get_damage(damage : int):
+	lives -= damage
 	Global.create_particle("blood_particle", global_position)
 	sonido_daño.play()
 	await sonido_daño.finished

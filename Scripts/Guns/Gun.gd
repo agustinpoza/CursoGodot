@@ -1,19 +1,30 @@
 extends Node2D
 
-@onready var sight = $Glock/AnimatedSprite2D/Sight
+class_name Gun
+
+
 var dir
-@onready var animationPlayer = $Glock/AnimatedSprite2D
-@onready var timer = $Timer
+@export var sight : Node2D
+@export var animationPlayer : Node2D
+@export var bullet_scene : PackedScene
 var can_shoot = true
 var auto = false
-var ammo = 999
+var ammo = 10
+var player_hand
 
 func _physics_process(delta: float) -> void:
+	if player_hand != null:
+		global_position = player_hand.global_position
 	var target_pos = get_global_mouse_position()
 	dir = (target_pos - global_position).normalized()
 	look_at(target_pos)
+	if dir.x < 0:
+		animationPlayer.scale.y = -0.25
+	else:
+		animationPlayer.scale.y = 0.25
 
-func single_shoot():
+
+func shoot():
 	can_shoot = false
 	spawn_bullet()
 	animationPlayer.play("single_shoot")
@@ -32,8 +43,7 @@ func empty_shoot():
 	
 
 func spawn_bullet():
-	const projectile = preload("res://Scenes/bullet.tscn")
-	var bullet = projectile.instantiate()
+	var bullet = bullet_scene.instantiate()
 	bullet.global_position = sight.global_position
 	bullet.look_at(get_global_mouse_position())
 	get_tree().root.add_child(bullet)

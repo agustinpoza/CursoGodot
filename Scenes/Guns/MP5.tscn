@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://bk83hx1io01nd"]
+[gd_scene load_steps=34 format=3 uid="uid://bk83hx1io01nd"]
 
-[ext_resource type="Script" uid="uid://diwlqmddexvqo" path="res://Scripts/mp_5.gd" id="1_xinr0"]
+[ext_resource type="Script" uid="uid://diwlqmddexvqo" path="res://Scripts/Guns/mp_5.gd" id="1_xinr0"]
+[ext_resource type="PackedScene" uid="uid://dbjvaaqao7p6l" path="res://Scenes/Guns/Bullets/MP5_Bullet.tscn" id="2_21iqf"]
 [ext_resource type="Texture2D" uid="uid://chxexjo6no62u" path="res://Assets/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Submachine - MP5A3 [80x48]/Full auto/[SHOOT WITH MUZZLE FLASH] FULL AUTO Submachine - MP5A3.png" id="2_xinr0"]
 [ext_resource type="Texture2D" uid="uid://djvdvmwbm6gom" path="res://Assets/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Submachine - MP5A3 [80x48]/Full auto/[SHOOT] FULL AUTO Submachine - MP5A3.png" id="3_21iqf"]
 [ext_resource type="Texture2D" uid="uid://cmvn0g33abfn6" path="res://Assets/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Submachine - MP5A3 [80x48]/Full auto/[SHOOT WITH CASING AND MUZZLE FLASH] FULL AUTO Submachine - MP5A3.png" id="3_octhe"]
@@ -217,20 +218,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_3wk6l")
 }],
 "loop": false,
-"name": &"individual_shoot",
+"name": &"single_shoot",
 "speed": 20.0
 }]
 
-[node name="MP" type="Node2D"]
+[node name="MP" type="Node2D" node_paths=PackedStringArray("sight", "animationPlayer")]
 y_sort_enabled = true
 script = ExtResource("1_xinr0")
+sight = NodePath("MP5/AnimatedSprite2D/Sight")
+animationPlayer = NodePath("MP5/AnimatedSprite2D")
+bullet_scene = ExtResource("2_21iqf")
 
 [node name="MP5" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MP5"]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_1e67i")
-animation = &"empty_shoot"
+animation = &"single_shoot"
 
 [node name="Sight" type="Node2D" parent="MP5/AnimatedSprite2D"]
 position = Vector2(20, -16)

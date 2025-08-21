@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://du6ey3twnhm1i"]
+
+[ext_resource type="Script" uid="uid://mj2k8o3g4ygr" path="res://Scripts/Guns/Bullets/glock_bullet.gd" id="1_kutji"]
+[ext_resource type="Texture2D" uid="uid://dp5aiedmcnjm1" path="res://Assets/Guns_V1.01 - Commission - Copy/01 - Individual sprites/Bullets & Ammo/Glock - P80/Bullet.png" id="2_7j3w6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd74q"]
+size = Vector2(1.94813, 2)
+
+[node name="Node2D" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_kutji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.04431, 0)
+shape = SubResource("RectangleShape2D_rd74q")
+
+[node name="Bullet" type="Sprite2D" parent="."]
+texture = ExtResource("2_7j3w6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

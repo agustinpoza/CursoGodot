@@ -89,7 +89,6 @@ position_smoothing_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_arntx")
 animation = &"h_walk+"
-frame_progress = 0.578073
 
 [node name="HurtBox" type="Area2D" parent="."]
 
@@ -99,6 +98,7 @@ shape = SubResource("RectangleShape2D_megsn")
 debug_color = Color(1, 0.00647609, 0.0545903, 0.42)
 
 [node name="Hand" type="Node2D" parent="."]
+position = Vector2(10, 0)
 
 [node name="Inventory" type="Node2D" parent="."]
 visible = false

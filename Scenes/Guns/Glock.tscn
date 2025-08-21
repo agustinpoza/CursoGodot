@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://nlrj0ptwxp11"]
+[gd_scene load_steps=11 format=3 uid="uid://nlrj0ptwxp11"]
 
-[ext_resource type="Script" uid="uid://c34to50mircjd" path="res://Scripts/glock.gd" id="1_lsi18"]
+[ext_resource type="Script" uid="uid://c34to50mircjd" path="res://Scripts/Guns/glock.gd" id="1_lsi18"]
 [ext_resource type="Texture2D" uid="uid://c0q8kndcwovqq" path="res://Assets/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH MUZZLE FLASH] Glock - P80.png" id="2_lsi18"]
+[ext_resource type="PackedScene" uid="uid://du6ey3twnhm1i" path="res://Scenes/Guns/Bullets/Glock_Bullet.tscn" id="2_pfwp5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfwp5"]
 atlas = ExtResource("2_lsi18")
@@ -53,14 +54,17 @@ animations = [{
 "speed": 25.0
 }]
 
-[node name="Pivot" type="Node2D"]
+[node name="Pivot" type="Node2D" node_paths=PackedStringArray("sight", "animationPlayer")]
 y_sort_enabled = true
 script = ExtResource("1_lsi18")
+sight = NodePath("Glock/AnimatedSprite2D/Sight")
+animationPlayer = NodePath("Glock/AnimatedSprite2D")
+bullet_scene = ExtResource("2_pfwp5")
 
 [node name="Glock" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Glock"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_1e67i")
 animation = &"single_shoot"
 
